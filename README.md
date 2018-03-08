@@ -45,7 +45,7 @@ This starts the docker image running the bigchainDB blockchain instance and make
 ##### Frontend
 
 The frontend can be deployed by cloning the following repository using git clone https://github.com/WaqasAliAbbasi/CollabCoin.git
-Then run the Meteor based web app using the docker file at CollabCoin/Frontend/Dockerfile-dev
+Then run the Meteor based web app using the docker file at CollabCoin/Frontend/Dockerfile-dev </br>
 Finally run the meteor server using metor server with docker file at CollabCoin/Frontend/Dockerfile
 
 <b> You have the platform running ! </b>
