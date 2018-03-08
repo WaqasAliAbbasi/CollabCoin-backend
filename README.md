@@ -31,7 +31,7 @@ After the trades have been executed and the players have been ranked according t
 The workflow of the whole system is based on BigchainDB blockchain and it has been executed as follows:
 
 <p align="center">
-  <img src="/technical.png" width="800"/>
+  <img src="/Technical.png" width="800"/>
 </p>
 
 For the system we have divided the implementation in two parts:
