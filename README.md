@@ -4,6 +4,12 @@
 
 A decentralized crowdsourced investment fund.
 
+The flow charts describing the overall application is as follows:
+
+<p align="center">
+  <img src="/CollabCoin-Workflow.png" width="800"/>
+</p>
+
 The product aims at making a Market-beating portfolio by 
 1. Crowd-sourcing insights and capital
 2. Mix of Product to Mix of Talent
@@ -13,7 +19,7 @@ Our TWO Target Groups
 People with investment insights= Player
 People looking for investment options= Putter
 
-A flow chart describing the overall application is as follows:
+After the trades have been executed and the players have been ranked according to our <i> decentralised algorithm </i> the player with a higher competency receives higher money to invest in the shares further and is incentivised with more collabcoins. 
 
 <p align="center">
   <img src="/execution.png" width="800"/>
@@ -25,7 +31,7 @@ A flow chart describing the overall application is as follows:
 The workflow of the whole system is based on BigchainDB blockchain and it has been executed as follows:
 
 <p align="center">
-  <img src="/CollabCoin-Workflow.png" width="800"/>
+  <img src="/technical.png" width="800"/>
 </p>
 
 For the system we have divided the implementation in two parts:
@@ -45,6 +51,12 @@ Finally run the meteor server using metor server with docker file at CollabCoin/
 <b> You have the platform running ! </b>
 
 # Business Model
+
+Why CollabCoin works?
+
+<p align="center">
+  <img src="/market.png" width="800"/>
+</p>
 
 ###### As a Putter
 
@@ -66,11 +78,3 @@ Finally run the meteor server using metor server with docker file at CollabCoin/
 3. Showcase their investment strategies for job prospect
 4. ⬆ Competency Level
 5. ⬆ Reputation
-
-
-
-
-
-
-
-
