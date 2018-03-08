@@ -25,7 +25,7 @@ A flow chart describing the overall application is as follows:
 The workflow of the whole system is based on BigchainDB blockchain and it has been executed as follows:
 
 <p align="center">
-  <img src="/Collabcoin-Workflow.png" width="800"/>
+  <img src="/CollabCoin-Workflow.png" width="800"/>
 </p>
 
 For the system we have divided the implementation in two parts:
