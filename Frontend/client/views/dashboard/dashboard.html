@@ -1,0 +1,153 @@
+<template name="dashboard">
+	<div class="template-dashboard">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					{{> addPost}}
+					{{> favoritesSidebar}}
+				</div>
+				<div class="col-md-9">
+					{{> stocks}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h4>Competence Index</h4>
+					<button type="button" class="btn btn-primary">
+						<span class="badge badge-success">1.23</span>
+					</button>
+				</div>
+				<div class="col-md-6">
+					<h4>Investable Capital</h4>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: 43%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">$6776 Left</div>
+					</div>
+				</div>
+			</div>
+			{{> stockModalTemplate}}
+			{{> doneModalTemplate}}
+		</div>
+	</div>
+</template>
+
+<template name="addPost">
+	<div class="template-add-post">
+		<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{_ "buy_stock"}}</h3>
+				</div>
+				<div class="panel-body">
+					{{#autoForm schema=Schemas.buyStock id="buyStock" type="normal"}}
+					<label for="assetType">Type</label>
+					<select id="assetType" class="form-control" style="margin-bottom: 10px;">
+					  <option value="Stock">Stock</option>
+					  <option value="Bond">Bond</option>
+					  <option value="ETF">ETF</option>
+					  <option value="ETF">Commodities</option>
+					  <option value="ETF">Currency</option>
+					  <option value="ETF">Cryptocurrency</option>
+					</select>
+					{{> afQuickField name="symbol" placeholder="AAPL"}}
+					{{> afQuickField name="quantity" placeholder=1}}
+					<button type="submit" id="buy" class="btn btn-primary">{{_ "buy_stock_btn"}}</button>
+					{{/autoForm}}
+				</div>
+		</div>
+	</div>
+</template>
+
+<template name="stocks">
+	<div class="template-stock">
+		<div style="float:right;">
+		<button type="button" style="float:left; margin-right:10px;" class="btn btn-info" onclick="window.location.reload(true);"><i class="fa fa-refresh"></i> Refresh</button>
+		<button type="button" style="float:left; margin-right:10px;" class="btn btn-warning" id="submitportfolio"><i class="fa fa-bar-chart"></i> Submit Portfolio</button>
+		<button type="button" style="float:left; margin-right:10px;" class="btn btn-danger"><i class="fa fa-money"></i> Sell All</button>
+	</div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Stock</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Purchase Price</th>
+					<th scope="col">Current Price</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each stocks}}
+				<tr>
+					<th scope="row">{{inc @index}}</th>
+					<td>{{this.symbol}}</td>
+					<td>{{this.quantity}}</td>
+					<td>{{this.purchasePrice}}</td>
+					<td>{{this.purchasePrice}}</td>
+					<td><button id="sell" type="button" class="btn btn-success" txid={{this.txID}}><i class="fa fa-calculator "></i> Sell</button></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>
+
+<template name="favoritesSidebar">
+	<div class="template-favorites-sidebar">
+		{{#if myFavorites.count}}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+					<h3 class="panel-title">{{_ "favorites"}}</h3>
+			</div>
+			<div class="panel-body">
+				<ul>
+				{{#each myFavorites}}
+					<li>
+						<a>{{_id}}</a>
+					</li>
+				{{/each}}
+				</ul>
+			</div>
+		</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="stockModalTemplate">
+  <div class="modal fade" id="stockModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Stock Purchase</h4>
+        </div>
+
+        <div class="modal-body" id="stockModalPrice">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="ok" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="doneModalTemplate">
+  <div class="modal fade" id="doneModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Portfolio Submitted</h4>
+        </div>
+
+        <div class="modal-body" id="stockModalPrice">
+        	Kindly wait for results.
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="ok" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
